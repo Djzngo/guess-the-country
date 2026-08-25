@@ -3,7 +3,7 @@
  */
 
 // Points to script used for testing.
-const { game } = require("../script")
+const { game, startGame } = require("../script")
 
 //Pulls elements from the DOM
 beforeAll(() => {
@@ -17,4 +17,22 @@ describe("game object to contain the correct keys", () => {
     test("guesses to be true", () => {
         expect("guesses" in game).toBe(true);
     });
-})
+    test("country to be true", () => {
+        expect("country" in game).toBe(true);
+    });
+    test("region to be true", () => {
+        expect("region" in game).toBe(true);
+    });
+    test("currency to be true", () => {
+        expect("currency" in game).toBe(true);
+    });
+});
+
+//Start game button testing
+describe("testing of start game button", () => {
+    startGame();
+    test("when start game is called set guess value to null", () => {
+        expect(game.guesses).toEqual(0)
+    });
+
+});
