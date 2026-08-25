@@ -12,6 +12,7 @@ beforeAll(() => {
     document.body.innerHTML = fileContents;
  });
 
+// testing object keys
 describe("game object to contain the correct keys", () => {
     test("guesses to be true", () => {
         expect("guesses" in game).toBe(true);
