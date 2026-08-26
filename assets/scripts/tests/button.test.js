@@ -1,14 +1,14 @@
 /**
- * @jest-enviroment jsdom
+ * @jest-environment jsdom
  */
 
 // Points to script used for testing.
-const { game, startGame } = require("../script")
+const { game, startGame, userSubmit } = require("../script")
 
 //Pulls elements from the DOM
 beforeAll(() => {
     let fs = require('fs');
-    let fileContents = fs.readFileSync('testing.html', 'utf-8');
+    let fileContents = fs.readFileSync('index.html', 'utf-8');
     document.body.innerHTML = fileContents;
  });
 
@@ -26,13 +26,22 @@ describe("game object to contain the correct keys", () => {
     test("currency to be true", () => {
         expect("currency" in game).toBe(true);
     });
+    test("answer to be true", () => {
+        expect("answer" in game).toBe(true);
+    });
 });
 
 //Start game button testing
 describe("testing of start game button", () => {
-    startGame();
     test("when start game is called set guess value to null", () => {
         expect(game.guesses).toEqual(0)
     });
+    
+});
 
+//Submit testing
+describe("testing user submission response", () => {
+    test("when user submits guess, compare with selected country", () => {
+        expect(userSubmit.guess != game.answer);
+    });
 });
