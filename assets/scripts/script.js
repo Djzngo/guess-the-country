@@ -1,7 +1,6 @@
 const API_URL = "https://api.restcountries.com/countries/v5?limit=100&region=europe"
 const API_KEY = "Bearer rc_live_79b6961d3d694fd19986cb45e54a3983";
 
-document.getElementById("btnStart").addEventListener("click", (e) => startGame(e));
 document.getElementById("btnRestart").addEventListener("click", () => gameRestart());
 document.getElementById("btnSubmit").addEventListener("click", () => userSubmit())
 
@@ -18,15 +17,13 @@ let answers = {
     currency: "",
 }
 
-// Hides start button on click to prevent multiple GET requests being made. Enables btnRestart, and btnSubmit
+// Start button on click functions
 $("#btnStart").on("click", function() {
-    $("#btnStart").hide("slow", function(){
-        $("#btnRestart, #btnSubmit")
-    });
+    startGame();
 });
 
-// //Request for information from API
-async function getRequest(e) {
+//Request for information from API
+async function getRequest() {
     const response = await fetch(
       API_URL,
       {
@@ -41,14 +38,17 @@ async function getRequest(e) {
     if (response.ok) {
         generateCountry(data);
         selectCountry();
-        
+        // Hides & disables start button on click to prevent multiple GET requests being made. Enables btnRestart, and btnSubmit
+        $("#btnStart").prop("disabled", true).hide("fast", function() {
+            $("#btnRestart, #btnSubmit").prop("disabled", false);
+        });
     }
     else {
         throw new Error(data.error);
     }
 }
-
-function startGame (e) {
+// Initialises game start.
+function startGame () {
 
     // Runs through each key in object and sets their values to an empty array
     Object.keys(game).forEach((i) => {
@@ -59,7 +59,7 @@ function startGame (e) {
     game.answer = null;
 
     //Runs API for country data.
-    getRequest(e);
+    getRequest();
 
 }
 
