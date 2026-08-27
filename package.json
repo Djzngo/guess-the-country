@@ -5,5 +5,8 @@
   },
   "scripts": {
     "test": "jest"
+  },
+  "dependencies": {
+    "jquery": "^4.0.0"
   }
 }

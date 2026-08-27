@@ -18,6 +18,13 @@ let answers = {
     currency: "",
 }
 
+// Hides start button on click to prevent multiple GET requests being made. Enables btnRestart, and btnSubmit
+$("#btnStart").on("click", function() {
+    $("#btnStart").hide("slow", function(){
+        $("#btnRestart, #btnSubmit")
+    });
+});
+
 // //Request for information from API
 async function getRequest(e) {
     const response = await fetch(
@@ -42,9 +49,6 @@ async function getRequest(e) {
 }
 
 function startGame (e) {
-
-    //Disables start button and enables restart button
-    btnControl();
 
     // Runs through each key in object and sets their values to an empty array
     Object.keys(game).forEach((i) => {
@@ -80,7 +84,6 @@ function selectCountry() {
     answers.country = game.country[rndNum];
     answers.region = game.region[rndNum];
     answers.currency = game.currency[rndNum];
-    console.log(answers);
 }
 
 // push country data to arrays within game object
@@ -120,20 +123,6 @@ function userSubmit() {
 
 function showGuesses() {
     document.getElementById("guessCount").innerText = game.guesses;
-}
-
-function btnControl() {
-    var start = document.getElementById("btnStart");
-    var restart = document.getElementById("btnRestart");
-    var submit = document.getElementById("btnSubmit");
-
-    //disables start button. Enables restart, and submit if start is disabled.
-    if (start.disabled != true) {
-        start.disabled = true;
-        restart.disabled = false;
-        submit.disabled = false;
-    }
-
 }
 
 // module.exports = { game, startGame, userSubmit };
