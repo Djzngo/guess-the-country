@@ -36,16 +36,15 @@ $("#btnRestart").on("click", function() {
 
 //Compares user guess and stored answer.
 $("#btnSubmit").on("click", function() {
-    let guess = $("#txtguess").val().toUpperCase();
+    let guess = $("#txtGuess").val().toUpperCase();
     let answer = new String(answers.country).toUpperCase();
 
     if (guess === answer) {
-        alert("Well done, you have entered the correct answer!");
+        alert("That's correct! Well done!");
     }
     else {
         game.guesses += 1;
         $("#guessCount").text(game.guesses);
-        alert("Try again.");
     }
 });
 
