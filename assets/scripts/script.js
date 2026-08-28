@@ -21,6 +21,10 @@ let answers = {
 $("#btnStart").on("click", function() {
     startGame();
 });
+// Restart button on click function
+$("#btnRestart").on("keypress", function() {
+    
+});
 
 //Request for information from API
 async function getRequest() {
@@ -105,10 +109,15 @@ function generateCountry(data) {
         }
     };
 }
+//Compares user guess and stored answer.
+$("#txtGuess").on("submit", function() {
+    let guess = $("#txtguess").val().toUpperCase();
+    let answer = new String(answers.country).toUpperCase();
+})
 
 function userSubmit() {
     let guess = document.getElementById("txtGuess").innerText;
-    let answer = answers.country
+    let answer = new String(answers.country);
     
     if (guess != answer) {
         game.guesses += 1;
@@ -117,8 +126,6 @@ function userSubmit() {
     else {
         console.log("correct")
     }
-
-    
 }
 
 function showGuesses() {
