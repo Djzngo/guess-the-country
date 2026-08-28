@@ -70,9 +70,9 @@ async function getRequest() {
     if (response.ok) {
         generateCountry(data);
         selectCountry();
-        // Hides & disables start button on click to prevent multiple GET requests being made. Enables btnRestart, and btnSubmit
+        // Hides & disables start button on click to prevent multiple GET requests being made. Enables btnRestart, btnSubmit, and input field.
         $("#btnStart").prop("disabled", true).hide("fast", function() {
-            $("#btnRestart, #btnSubmit").prop("disabled", false);
+            $("#btnRestart, #btnSubmit, #txtGuess").prop("disabled", false);
         });
     }
     else {
