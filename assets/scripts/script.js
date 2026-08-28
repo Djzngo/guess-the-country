@@ -1,9 +1,6 @@
 const API_URL = "https://api.restcountries.com/countries/v5?limit=100&region=europe"
 const API_KEY = "Bearer rc_live_79b6961d3d694fd19986cb45e54a3983";
 
-document.getElementById("btnRestart").addEventListener("click", () => gameRestart());
-document.getElementById("btnSubmit").addEventListener("click", () => userSubmit())
-
 let game = {
     guesses: 0,
     country: [],
@@ -21,9 +18,35 @@ let answers = {
 $("#btnStart").on("click", function() {
     startGame();
 });
-// Restart button on click function
-$("#btnRestart").on("keypress", function() {
-    
+
+// Empties answers object, and select a new country to guess
+$("#btnRestart").on("click", function() {
+    game.guesses = 0;
+
+    // Empties all data in answer object
+    Object.keys(answers).forEach((i) => {
+        answers[i] = null;
+    });
+
+    selectCountry();
+
+    // Resets guess counter
+    $("#guessCount").text(game.guesses);
+});
+
+//Compares user guess and stored answer.
+$("#btnSubmit").on("click", function() {
+    let guess = $("#txtguess").val().toUpperCase();
+    let answer = new String(answers.country).toUpperCase();
+
+    if (guess === answer) {
+        alert("Well done, you have entered the correct answer!");
+    }
+    else {
+        game.guesses += 1;
+        $("#guessCount").text(game.guesses);
+        alert("Try again.");
+    }
 });
 
 //Request for information from API
@@ -67,20 +90,6 @@ function startGame () {
 
 }
 
-// Empties answers object, and select a new country to guess
-function gameRestart() {
-    game.guesses = 0;
-    showGuesses();
-    
-
-    Object.keys(answers).forEach((i) => {
-        answers[i] = null;
-    });
-
-    selectCountry();
-
-}
-
 // Selects a random country from game.country array to be placed in answers.country
 function selectCountry() {
     let rndNum = Math.floor(Math.random() * 53);
@@ -108,28 +117,6 @@ function generateCountry(data) {
             currency.push(array.data.objects[i].currencies[0].code);
         }
     };
-}
-//Compares user guess and stored answer.
-$("#txtGuess").on("submit", function() {
-    let guess = $("#txtguess").val().toUpperCase();
-    let answer = new String(answers.country).toUpperCase();
-})
-
-function userSubmit() {
-    let guess = document.getElementById("txtGuess").innerText;
-    let answer = new String(answers.country);
-    
-    if (guess != answer) {
-        game.guesses += 1;
-        showGuesses();
-    }
-    else {
-        console.log("correct")
-    }
-}
-
-function showGuesses() {
-    document.getElementById("guessCount").innerText = game.guesses;
 }
 
 // module.exports = { game, startGame, userSubmit };
