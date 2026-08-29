@@ -8,3 +8,36 @@
     --primary-font: "Abril Fatface", serif;
     --secondary-font: "Source Serif 4", serif;
 }
+
+/* General Styles */
+
+body {
+    font-family: var(--primary-font);
+}
+
+/* Navbar Styles */
+
+#navbar {
+    background-color: #6D4FD0;
+    color: #FFFFFF;
+
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#navbar .nav-item {
+    color: white !important;
+}
+
+#navbar .logo {
+    width: 30px;
+}
+
+/* Header Styles */
+
+/* Footer Styles */
+
+.footer {
+    background-color: #6D4FD0;
+}
