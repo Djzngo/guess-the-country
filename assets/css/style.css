@@ -18,7 +18,8 @@ body {
     background-color: var(--secondary-color);
 }
 
-h1 {
+h1,
+h3 {
     font-family: var(--secondary-font);
 }
 
@@ -59,6 +60,7 @@ h1 {
 }
 
 /* Header Styles */
+
 
 /* Footer Styles */
 .footer {
