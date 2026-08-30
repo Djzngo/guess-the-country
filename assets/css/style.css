@@ -1,43 +1,104 @@
 /* imports */
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 
 /* CSS Variables */
 
 :root {
-    --primary-font: "Abril Fatface", serif;
-    --secondary-font: "Source Serif 4", serif;
+    --primary-font: "Fjalla One", sans-serif;
+    --secondary-font: "Rock Salt", cursive;
+    --primary-color: #6D4FD0;
+    --secondary-color: #F2F0EF;
 }
 
 /* General Styles */
 
 body {
     font-family: var(--primary-font);
+    background-color: var(--secondary-color);
+}
+
+h1 {
+    font-family: var(--secondary-font);
 }
 
 /* Navbar Styles */
 
-#navbar {
-    background-color: #6D4FD0;
-    color: #FFFFFF;
+.navbar {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
 
     position: sticky;
     top: 0;
     z-index: 10;
 }
 
+.navbar-toggler {
+    color: var(--secondary-color);
+}
+/* Overrides Boostrap css on nav bar text */
+.navbar-nav .nav-link {
+    color: var(--secondary-color);
+}
+/* Overrides Boostrap css on nav bar text and underlines the active link */
+.navbar-nav .nav-link.active {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
 #navbar .nav-item {
-    color: white !important;
+    color: var(--secondary-color);
 }
 
 #navbar .logo {
-    width: 30px;
+    width: 60px;
+}
+
+.navTitle {
+    font-size: 1rem;
 }
 
 /* Header Styles */
 
 /* Footer Styles */
-
 .footer {
-    background-color: #6D4FD0;
+    font-family: var(--secondary-font);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 20px 20px;
+}
+
+.footer a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.footer a > p {
+    color: var(--secondary-color);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.footer a:hover {
+    opacity: 50%;
+}
+
+/* Small devices (phones, 576px and below) */
+@media screen and (max-width: 576px) {
+    .footer a > p {
+        display: none;
+    }
+
+    .socials {
+        margin-bottom: 10px;
+        font-size: 25px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) {
+    /* Nav bar title */
+    .navTitle {
+        display: none;
+    }
 }
