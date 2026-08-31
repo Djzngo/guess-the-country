@@ -16,6 +16,9 @@
 body {
     font-family: var(--primary-font);
     background-color: var(--secondary-color);
+    background-image: url("/assets/images/The_World_map.png");
+    background-blend-mode: overlay;
+    background-size: 20% 10%;
 }
 
 h1,
@@ -61,6 +64,9 @@ h3 {
 
 /* Header Styles */
 
+.intro {
+    margin-top: 30px;
+}
 
 /* Footer Styles */
 .footer {
@@ -94,6 +100,14 @@ h3 {
     .socials {
         margin-bottom: 10px;
         font-size: 25px;
+    }
+}
+
+/* Medium devices (tablets, 768px and below) */
+@media screen and (max-width: 768px) {
+    /* Header title */
+    #header h3 {
+        display: none;
     }
 }
 
