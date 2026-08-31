@@ -41,7 +41,7 @@
         <div class="container text-center intro">
           <div class="row">
             <div class="col-12 col-sm12 col-lg-12">
-              <h3>Guess The Country</h3>
+              <h3 style="font-size: 3rem;">Guess The Country</h3>
             </div>
           </div>
           <div class="row mt-4">
@@ -55,19 +55,41 @@
     </header>
     <!-- Main element to hold all key sections of the webpage -->
     <main>
-        <!-- About section -->
-         <seciton>
-          <div class="container text-start">
-            <div class="row mt-4">
-              <h3>About</h3>
+      <!-- How to play section -->
+      <section>
+        <div class="container text-sm-center text-lg-start">
+          <div class="row mt-4">
+            <div class="col-12">
+              <h3>How to Play <i class="fa-solid fa-list"></i></h3>
             </div>
-            <div class="row mt-4">
+          </div>
+          <div class="row mt-4">
+            <p>To play the game please head to the 'Game' webpage <a href="game.html" class="link">here</a> where you can then click the 'Start Game' button which will generate a random country for you to guess.</p>
+            <h4>Gameplay</h4>
+            <p></p>
+          </div>
+        </div>
+      </section>
+      <!-- About section -->
+      <seciton>
+        <div class="container text-sm-center text-lg-start">
+          <div class="row mt-4">
+            <div class="col-12">
+              <h3>About <i class="fa-solid fa-book"></i></h3>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-12">
               <p>
-                For me to have been able to achieve what this game can do, I have had to rely on using an API to provide the data on all these countries.
+                This game uses the 'Rest Countries' API to request a dataset of countries with additional information such as
+                currency, region, common name, and much more. I extract the information needed from the object requested, and
+                use it for this game to work. There are some features I would like to implement in the future such as a post
+                statistics, daily tracking, distance from current guess unable to create something like this 
               </p>
             </div>
           </div>
-         </seciton>
+        </div>
+      </seciton>
     </main>
     <!-- Footer -->
     <!-- mt-auto added to push footer to the bottom of the page-->

@@ -6,12 +6,16 @@ let game = {
     country: [],
     region: [],
     currency: [],
+    longitude: [],
+    latitude: [],
 }
 
 let answers = {
     country: "",
     region: "",
     currency: "",
+    longitude: "",
+    latitude: "",
 }
 
 // Start button on click functions
@@ -102,6 +106,8 @@ function selectCountry() {
     answers.country = game.country[rndNum];
     answers.region = game.region[rndNum];
     answers.currency = game.currency[rndNum];
+    answers.longitude = game.longitude[rndNum];
+    answers.latitude = game.latitude[rndNum];
 }
 
 // push country data to arrays within game object
@@ -110,10 +116,15 @@ function generateCountry(data) {
     let countries = game.country;
     let region = game.region;
     let currency = game.currency;
+    let longitude = game.longitude;
+    let latitude = game.latitude;
 
     for (let i = 0; i <= 53; i++) {
         countries.push(array.data.objects[i].names.common);
         region.push(array.data.objects[i].region);
+        longitude.push(array.data.objects[i].coordinates.lng);
+        latitude.push(array.data.objects[i].coordinates.lat);
+
         // If coutry does not have currency listed push 'N/A' in its place
         if (array.data.objects[i].currencies[0] == undefined){
             currency.push("N/A");
