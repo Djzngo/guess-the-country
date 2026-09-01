@@ -84,6 +84,30 @@ h3 {
     width: 50%;
 }
 
+/* Indicators section */
+#indicators p {
+    min-height: 50px;
+}
+
+/* Feedback section */
+#feedback {
+    min-height: 250px;
+    color: var(--primary-color);
+    margin: 50px 50px;
+}
+
+/* Modifies loading spinner to be larger than bootstrap default */
+#feedback .spinner-border {
+    --bs-spinner-width: 6rem;
+    --bs-spinner-height: 6rem;
+    --bs-spinner-border-width: .5em;
+}
+
+/* User input section */
+#userInput {
+    margin: 0px 10px;
+}
+
 /* Footer Styles */
 .footer {
     font-family: var(--secondary-font);
@@ -116,6 +140,14 @@ h3 {
     .socials {
         margin-bottom: 10px;
         font-size: 25px;
+    }
+
+    #feedback {
+        min-height: 150px;
+    }
+
+    #userInput {
+        margin: 20px 40px;
     }
 }
 
