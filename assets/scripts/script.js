@@ -59,9 +59,13 @@ $("#btnSubmit").on("click", function() {
     let guess = $("#txtGuess").val().toUpperCase();
     let answer = new String(answers.country).toUpperCase();
 
+    compareGuess();
+
     // Checks users guess against answer
     if (guess === answer) {
         alert("That's correct! Well done!");
+        $("#btnRestart").slideDown("slow").attr("style", "display: inline-block");
+        $("#btnSubmit, #txtGuess, #btnNew").prop("disabled", true);
     }
     else {
         game.guesses += 1;
@@ -83,6 +87,16 @@ $("#txtGuess").on("keypress", function(event) {
     }
 });
 
+// Reveals the region of the answer when clicked
+$("#btnRegion").on("click", function() {
+    $("#txtRegion").text(answers.region);
+});
+
+// Reveals the currency of the answer when clicked
+$("#btnCurrency").on("click", function() {
+    $("#txtCurrency").text(answers.currency);
+});
+
 //Request for information from API
 async function getRequest() {
     const response = await fetch(
@@ -99,9 +113,9 @@ async function getRequest() {
     if (response.ok) {
         generateCountry(data);
         selectCountry();
-        // Hides & disables start button on click to prevent multiple GET requests being made. Enables btnRestart, btnSubmit, and input field.
+        // Hides & disables start button on click to prevent multiple GET requests being made. Enables btnNew, btnSubmit, and input field.
         $("#btnStart").prop("disabled", true).hide("fast", function() {
-            $("#btnRestart, #btnSubmit, #txtGuess").prop("disabled", false);
+            $("#btnNew, #btnSubmit, #txtGuess").prop("disabled", false);
         });
         $("#loadingStart").hide("fast");
     }
@@ -160,6 +174,39 @@ function generateCountry(data) {
         }
     };
 }
+
+// Compares user guess to answer, and stores the values of the guessed country in comparison object.
+function compareGuess() {
+    // Converts user input to uppercase for comparison
+    let x = new String($("#txtGuess").val()).toUpperCase();
+
+    //Loops through game.country array. Once match is found with user input take index of match, and use that to define the other values in comparison object.
+    game.country.forEach((i) => {
+        let y = game.country.indexOf(i);
+
+        if (x === i.toUpperCase()) {
+            comparison.country = game.country[y];
+            comparison.region = game.region[y];
+            comparison.currency = game.currency[y];
+            comparison.longitude = game.longitude[y];
+            comparison.latitude = game.latitude[y];
+        }
+    });
+
+    lngLatDiff();
+
+}
+
+// Calculates the difference between the guessed country and the answer, and displays it in the HTML.
+function lngLatDiff() {
+    let a = comparison.longitude - answers.longitude;
+    let b = comparison.latitude - answers.latitude;
+
+    $("#txtLongitude").text(a.toFixed(2));
+    $("#txtLatitude").text(b.toFixed(2));
+}
+
+
 
 //Jest Exports
 // module.exports = { game, startGame, userSubmit };

@@ -105,13 +105,13 @@ h3 {
 
 /* Feedback section */
 #feedback {
-    min-height: 30vw;
+    min-height: 20vw;
     margin: 50px 50px;
 }
 
 .world {
-    height: 30vw;
-    width: 30vw;
+    height: 20vw;
+    width: 20vw;
     border-radius: 50%;
 
     background-image: url("/assets/images/The_World_map.png");
@@ -233,6 +233,15 @@ h3 {
 
     #userInput label {
         padding-top: 20px;
+    }
+
+    .world {
+    height: 30vw;
+    width: 30vw;
+    }
+
+    .btn {
+        min-height: 62px;
     }
 }
 
