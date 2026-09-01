@@ -1,4 +1,4 @@
-const API_URL = "https://api.restcountries.com/countries/v5?limit=100&region=europe"
+const API_URL = "https://api.restcountries.com/countries/v5?limit=100&region=europe";
 const API_KEY = "Bearer rc_live_79b6961d3d694fd19986cb45e54a3983";
 
 let game = {
@@ -8,7 +8,7 @@ let game = {
     currency: [],
     longitude: [],
     latitude: [],
-}
+};
 
 let answers = {
     country: "",
@@ -16,7 +16,7 @@ let answers = {
     currency: "",
     longitude: "",
     latitude: "",
-}
+};
 
 let comparison = {
     country: "",
@@ -24,7 +24,7 @@ let comparison = {
     currency: "",
     longitude: "",
     latitude: "",
-}
+};
 
 // Start button on click functions
 $("#btnStart").on("click", function() {
@@ -52,12 +52,16 @@ $("#btnRestart").on("click", function() {
     // Hides help buttons
     $("#btnRegion").slideUp("slow");
     $("#btnCurrency").slideUp("slow");
+
+    $("#btnRestart").slideUp("slow");
+    $("#txtGuess").val("");
+    $("#btnSubmit, #txtGuess, #btnNew").prop("disabled", false);
 });
 
 //Compares user guess and stored answer.
 $("#btnSubmit").on("click", function() {
     let guess = $("#txtGuess").val().toUpperCase();
-    let answer = new String(answers.country).toUpperCase();
+    let answer = answers.country.toUpperCase();
 
     compareGuess();
 
@@ -179,13 +183,13 @@ function generateCountry(data) {
         else {
             currency.push(array.data.objects[i].currencies[0].code);
         }
-    };
+    }
 }
 
 // Compares user guess to answer, and stores the values of the guessed country in comparison object.
 function compareGuess() {
     // Converts user input to uppercase for comparison
-    let x = new String($("#txtGuess").val()).toUpperCase();
+    let x = $("#txtGuess").val().toUpperCase();
 
     //Loops through game.country array. Once match is found with user input take index of match, and use that to define the other values in comparison object.
     game.country.forEach((i) => {
