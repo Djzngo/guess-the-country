@@ -63,7 +63,14 @@ $("#btnSubmit").on("click", function() {
 
     // Checks users guess against answer
     if (guess === answer) {
-        alert("That's correct! Well done!");
+        alert(`That's correct! Well done! \nAnswer: ${answers.country}`);
+
+        $("#txtRegion").text(answers.region);
+        $("#txtCurrency").text(answers.currency);
+        $("#txtLatitude").text(answers.latitude);
+        $("#txtLongitude").text(answers.longitude);
+
+        // Disables input field and submit button, and reveals restart button
         $("#btnRestart").slideDown("slow").attr("style", "display: inline-block");
         $("#btnSubmit, #txtGuess, #btnNew").prop("disabled", true);
     }
