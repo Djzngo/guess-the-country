@@ -21,6 +21,7 @@ let answers = {
 // Start button on click functions
 $("#btnStart").on("click", function() {
     startGame();
+    $("#loadingStart").show("fast").attr("style", "display: inline-block");
 });
 
 // Empties answers object, and select a new country to guess
@@ -34,8 +35,15 @@ $("#btnRestart").on("click", function() {
 
     selectCountry();
 
-    // Resets guess counter
-    $("#guessCount").text(game.guesses);
+    // Resets indicators
+    $("#guessCount").text("Guesses: " + game.guesses);
+    $("#txtRegion").text("-");
+    $("#txtCurrency").text("-");
+    $("#txtLatitude").text("-");
+    $("#txtLongitude").text("-");
+    // Hides help buttons
+    $("#btnRegion").slideUp("slow");
+    $("#btnCurrency").slideUp("slow");
 });
 
 //Compares user guess and stored answer.
@@ -43,12 +51,20 @@ $("#btnSubmit").on("click", function() {
     let guess = $("#txtGuess").val().toUpperCase();
     let answer = new String(answers.country).toUpperCase();
 
+    // Checks users guess against answer
     if (guess === answer) {
         alert("That's correct! Well done!");
     }
     else {
         game.guesses += 1;
-        $("#guessCount").text(game.guesses);
+        $("#guessCount").text("Guesses: " + game.guesses);
+    }
+
+    if (game.guesses === 10) {
+        $("#btnRegion").slideDown("slow").attr("style", "display: inline-block");
+    }
+    else if (game.guesses === 15) {
+        $("#btnCurrency").slideDown("slow").attr("style", "display: inline-block");
     }
 });
 
@@ -79,6 +95,7 @@ async function getRequest() {
         $("#btnStart").prop("disabled", true).hide("fast", function() {
             $("#btnRestart, #btnSubmit, #txtGuess").prop("disabled", false);
         });
+        $("#loadingStart").hide("fast");
     }
     else {
         throw new Error(data.error);

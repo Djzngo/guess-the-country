@@ -38,35 +38,42 @@
         </div>
     </nav>
     <header id="header">
-        <div class="container">
-          <div class="row text-center mt-4">
-            <div class="col-12">
-              <h1>Guess The Country</h1>
-            </div>
+      <div class="container">
+        <div class="row text-center mt-4">
+          <div class="col-12">
+            <h1>Guess The Country</h1>
           </div>
         </div>
+      </div>
+      <div class="container text-center">
+        <div id="loading" class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
     </header>
-    <!-- Main element to game elements -->
-    <main>
+    <!-- Game elements -->
+    <main style="display: none;">
       <!-- Indicators section -->
       <section id="indicators">
         <div class="container indicators">
           <div class="row text-center mt-5">
             <div class="col-6 col-lg-3">
               <h4>Region</h4>
-              <p id="txtRegion"></p>
+              <p id="txtRegion">-</p>
+              <button id="btnRegion" type="button" class="btn btn-primary">Reveal</button>
             </div>
             <div class="col-6 col-lg-3">
               <h4>Currency</h4>
-              <p id="txtCurrency"></p>
+              <p id="txtCurrency">-</p>
+              <button id="btnCurrency" type="button" class="btn btn-primary">Reveal</button>
             </div>
             <div class="col-6 col-lg-3">
               <h4>Longitude</h4>
-              <p id="txtLongitude"></p>
+              <p id="txtLongitude">-</p>
             </div>
             <div class="col-6 col-lg-3">
               <h4>Latitude</h4>
-              <p id="txtLatitude"></p>
+              <p id="txtLatitude">-</p>
             </div>
           </div>
         </div>
@@ -74,19 +81,42 @@
       <!-- Feedback section -->
       <section id="feedback">
         <div class="container text-center">
-          <div class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
+          <div class="row mt-4">
+            <div class="col-12">
+              <button id="btnStart" type="button" class="world">Start Game</button>
+            </div>
           </div>
         </div>
       </section>
       <!-- User input section -->
       <section id="userInput">
         <div class="container">
-          <div class="row mt-4">
-            <label for="txtGuess">Guess here</label>
-            <input type="text" id="txtGuess" name="txtGuess">
+          <div class="row mt-4 text-start">
+            <div class="col-6">
+              <label for="txtGuess">Guess</label>
+            </div>
+            <div class="col-6 text-end">
+              <div id="loadingStart" class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
           </div>
-        </div>
+          <div class="row">
+            <div class="col-12">
+              <input type="text" id="txtGuess" name="txtGuess" placeholder="Input here..." disabled>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-4">
+              <button id="btnSubmit" type="button" class="btn btn-primary" disabled>Submit</button>
+            </div>
+            <div class="col-4">
+              <button id="btnRestart" type="button" class="btn btn-primary" disabled>Restart</button>
+            </div>
+            <div class="col-4 text-center">
+              <p id="guessCount">Guesses: -</p>
+            </div>
+          </div>
       </section>
     </main>
     <!-- Footer -->
@@ -125,5 +155,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <!-- Fontawesome kit -->
     <script src="https://kit.fontawesome.com/68e4433a11.js" crossorigin="anonymous"></script>
+    <!-- Page loading animations -->
+    <script>
+      $(function() {
+        $("#loading").fadeOut(750);
+        $("main").slideDown(1500);
+      });
+    </script>
 </body>
 </html>

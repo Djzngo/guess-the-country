@@ -9,6 +9,7 @@
     --secondary-font: "Rock Salt", cursive;
     --primary-color: #6D4FD0;
     --secondary-color: #F2F0EF;
+    --button-hover: #6D5FD0;
 }
 
 /* General Styles */
@@ -84,28 +85,70 @@ h3 {
     width: 50%;
 }
 
+/* Modifies loading spinner to be larger than bootstrap default */
+#header .spinner-border {
+    --bs-spinner-width:20rem;
+    --bs-spinner-height: 20rem;
+    --bs-spinner-border-width: .75em;
+}
+
+/* Main styles */
+
 /* Indicators section */
 #indicators p {
     min-height: 50px;
 }
 
+#btnRegion, #btnCurrency {
+    display: none;
+}
+
 /* Feedback section */
 #feedback {
-    min-height: 250px;
-    color: var(--primary-color);
+    min-height: 30vw;
     margin: 50px 50px;
 }
 
-/* Modifies loading spinner to be larger than bootstrap default */
-#feedback .spinner-border {
-    --bs-spinner-width: 6rem;
-    --bs-spinner-height: 6rem;
-    --bs-spinner-border-width: .5em;
+.world {
+    height: 30vw;
+    width: 30vw;
+    border-radius: 50%;
+
+    background-image: url("/assets/images/The_World_map.png");
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-size: 225%;
+
+    background-color: var(--primary-color);
+    border: 3px solid #000000;
+
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.world:hover {
+    box-shadow:0 8px 16px 0 rgba(0,0,0,0.6);
+}
+
+.world:active {
+    transform: translateY(4px)
+}
+
+#loadingStart {
+    display: none;
+}
+
+#txtGuess {
+    width: 100%;
 }
 
 /* User input section */
 #userInput {
-    margin: 0px 10px;
+    margin: 10px 10px;
+}
+
+#userInput label {
+    font-size: 1.5em;
 }
 
 /* Footer Styles */
@@ -131,7 +174,33 @@ h3 {
     opacity: 50%;
 }
 
-/* Small devices (phones, 576px and below) */
+/* Button styling */
+
+.btn {
+    font-size: 1rem;
+
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    --bs-btn-border-color: #000000;
+}
+
+.btn:active {
+    --bs-btn-active-bg: var(--secondary-color);
+    --bs-btn-active-color: var(--primary-color);
+}
+
+.btn:hover {
+    background-color: var(--button-hover);
+    border-color: #000000;
+}
+
+.btn:disabled {
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    border-color: #000000;
+}
+
+/* Small devices (phones, below 576px) */
 @media screen and (max-width: 576px) {
     .footer a > p {
         display: none;
@@ -151,11 +220,19 @@ h3 {
     }
 }
 
-/* Medium devices (tablets, 768px and below) */
-@media screen and (max-width: 768px) {
+/* Medium devices (tablets, below 768px) */
+@media screen and (max-width: 767px) {
     /* Header title */
-    #header h3 {
+    #header h1, h3 {
         display: none;
+    }
+
+    #loadingStart {
+    margin-top: 20px;
+    }
+
+    #userInput label {
+        padding-top: 20px;
     }
 }
 
