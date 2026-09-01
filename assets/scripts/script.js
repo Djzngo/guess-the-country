@@ -18,6 +18,14 @@ let answers = {
     latitude: "",
 }
 
+let comparison = {
+    country: "",
+    region: "",
+    currency: "",
+    longitude: "",
+    latitude: "",
+}
+
 // Start button on click functions
 $("#btnStart").on("click", function() {
     startGame();
