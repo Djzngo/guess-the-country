@@ -51,6 +51,7 @@ $("#btnSubmit").on("click", function() {
         $("#guessCount").text(game.guesses);
     }
 });
+
 // Runs #btnSubmit click event on 'Enter' keypress within input field
 $("#txtGuess").on("keypress", function(event) {
     if (event.key === "Enter") {
@@ -135,4 +136,5 @@ function generateCountry(data) {
     };
 }
 
+//Jest Exports
 // module.exports = { game, startGame, userSubmit };

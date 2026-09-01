@@ -21,6 +21,10 @@ body {
     background-size: 20% 10%;
 }
 
+ol li {
+    font-size: 1.25rem;
+}
+
 body p {
     font-size: 1.25em;
 }
@@ -74,6 +78,10 @@ h3 {
 
 .intro > h3 {
     font-size: large;
+}
+
+.imgLogo {
+    width: 50%;
 }
 
 /* Footer Styles */
