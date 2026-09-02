@@ -1,5 +1,5 @@
-const API_URL = "https://api.restcountries.com/countries/v5?limit=100&region=europe";
-const API_KEY = "Bearer rc_live_79b6961d3d694fd19986cb45e54a3983";
+const API_URL = "https://api.restcountries.com/countries/v5?limit=100&region=europe"
+const API_KEY = "Bearer rc_live_79b6961d3d694fd19986cb45e54a3983"
 
 let game = {
     guesses: 0,
