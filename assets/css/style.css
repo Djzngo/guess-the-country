@@ -1,4 +1,4 @@
-/* imports */
+/* Imports */
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 
@@ -17,7 +17,7 @@
 body {
     font-family: var(--primary-font);
     background-color: var(--secondary-color);
-    background-image: url("/assets/images/The_World_map.png");
+    background-image: url("assets/images/The_World_map.png");
     background-blend-mode: overlay;
     background-size: 20% 10%;
 }
