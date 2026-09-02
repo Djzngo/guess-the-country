@@ -114,7 +114,7 @@ h3 {
     width: 20vw;
     border-radius: 50%;
 
-    background-image: url("/assets/images/The_World_map.png");
+    background-image: url("../images/The_World_map.png");
     background-blend-mode: overlay;
     background-repeat: no-repeat;
     background-size: 225%;
