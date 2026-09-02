@@ -43,10 +43,6 @@ I will be testing using TDD method, this is what I find most comfortable when de
 
 The first thing I will be testing is ensuring that values can be entered in a element by manipulating the DOM.
 
-## Deployment
-
-Deployment will be done using GitHub pages feature.
-
 ### Incrementing Guess
 
 Incrementing guess will add '1' to the guess total for every incorrect entry put into the guess text box.
@@ -55,6 +51,6 @@ Incrementing guess will add '1' to the guess total for every incorrect entry put
 
 Wireframes for the website can be found at '/Wiresframes'. Inside are two views, one for mobile, and the other for desktop/larger devices. Not much changes between the two as the website doesn't have a large amount of sections with content, the site is more to display my jaavscript, and use of API's.
 
+## Deployment
 
-
-
+Deployment will be done using GitHub pages feature.
