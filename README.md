@@ -18,8 +18,8 @@ A navbar will be at the top of the webpage which will have links to a about, and
 
 Here you can find a logo, and a favicon which I have designed, and made myself using an online platform called 'Photopea'.
 These are the two designs I have created, both will be used throughout the website.
-![Logo](assets/images/GTC%20Logo%202.png)
-![Logo-two](assets/images/GTC%20Logo.webp)
+![Logo](assets/images/GTC-Logo.png)
+![Logo-two](assets/images/GTC-logo-two.png)
 
 This is the favicon that I have designed which is just a smaller version of the logo created above.
 
@@ -42,6 +42,10 @@ Testing will be done with 'Jest' v.26.6.3 to ensure that the scripts I am implem
 I will be testing using TDD method, this is what I find most comfortable when developing.
 
 The first thing I will be testing is ensuring that values can be entered in a element by manipulating the DOM.
+
+## Deployment
+
+Deployment will be done using GitHub pages feature.
 
 ### Incrementing Guess
 
