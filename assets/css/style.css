@@ -105,7 +105,7 @@ h3 {
 
 /* Feedback section */
 #feedback {
-    min-height: 20vw;
+    min-height: 15vh;
     margin: 50px 50px;
 }
 
@@ -140,6 +140,10 @@ h3 {
 
 #txtGuess {
     width: 100%;
+}
+
+#reaction > img {
+    height: 20vh;
 }
 
 /* User input section */

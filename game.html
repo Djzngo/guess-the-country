@@ -20,7 +20,7 @@
           <a class="navbar-brand" href="index.html" aria-label="Homepage shortcut">
             <img src="assets/images/GTC-logo-two.png" alt="GTC logo" class="logo">
           </a>
-          <p class="navTitle">Guess The Country</p>
+          <h1 class="navTitle">Guess The Country</h1>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fa-solid fa-gamepad fa-lg"></span>
@@ -45,6 +45,7 @@
           </div>
         </div>
       </div>
+      <!-- Loding spinner -->
       <div class="container text-center">
         <div id="loading" class="spinner-border" role="status">
           <span class="visually-hidden">Loading...</span>
@@ -88,8 +89,11 @@
             </div>
           </div>
           <div class="row mt-4">
-            <div id="reaction">
-
+            <div id="reaction" class="text-center">
+              <img src="assets/images/reaction-go.png" alt="Go sign" id="reactionGo">
+              <img src="assets/images/correct-tick.png" alt="Tick" id="reactionTick">
+              <img src="assets/images/incorrect-cross.png" alt="Incorrect sign" id="reactionWrong">
+              <img src="assets/images/unlock.png" alt="padlock" id="reactionUnlock">
             </div>
           </div>
         </div>
@@ -101,6 +105,7 @@
             <div class="col-6">
               <label for="txtGuess">Guess</label>
             </div>
+            <!-- Loading spinner -->
             <div class="col-6 text-end">
               <div id="loadingStart" class="spinner-border" role="status">
                 <span class="visually-hidden">Loading...</span>

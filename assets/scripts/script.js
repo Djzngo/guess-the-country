@@ -26,6 +26,9 @@ let comparison = {
     latitude: "",
 };
 
+// Hides reaction elements on load
+$("#reaction > img").hide();
+
 // Start button on click functions
 $("#btnStart").on("click", function() {
     startGame();
@@ -81,13 +84,28 @@ $("#btnSubmit").on("click", function() {
     else {
         game.guesses += 1;
         $("#guessCount").text("Guesses: " + game.guesses);
+
+        // Slowly fades in cross to show user incorrect answer
+        $("#reactionWrong").fadeIn("slow", function () {
+            $("#reactionWrong").fadeOut("fast");
+        });
     }
 
     if (game.guesses === 10) {
         $("#btnRegion").slideDown("slow").attr("style", "display: inline-block");
+        
+        // Slowly fades in padlock to show user has unlocked hint feature.
+        $("#reactionUnlock").fadeIn("slow", function () {
+            $("#reactionUnlock").fadeOut("slow");
+        });
     }
     else if (game.guesses === 15) {
         $("#btnCurrency").slideDown("slow").attr("style", "display: inline-block");
+
+        // Slowly fades in padlock to show user has unlocked hint feature.
+        $("#reactionUnlock").fadeIn("slow", function () {
+            $("#reactionUnlock").fadeOut("slow");
+        });
     }
 });
 
