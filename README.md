@@ -2,6 +2,10 @@
 
 This is a countr
 
+Repository [Link](https://github.com/Djzngo/guess-the-country)
+
+Live Site [Link](https://djzngo.github.io/guess-the-country/)
+
 ---
 
 ## Table of Contents

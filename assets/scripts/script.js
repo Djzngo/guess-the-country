@@ -77,6 +77,11 @@ $("#btnSubmit").on("click", function() {
         $("#txtLatitude").text(answers.latitude);
         $("#txtLongitude").text(answers.longitude);
 
+        // Slowly fades in tick to show correct answer guessed
+        $("#reactionTick").fadeIn("slow", function () {
+            $("#reactionTick").fadeOut("slow");
+        });
+
         // Disables input field and submit button, and reveals restart button
         $("#btnRestart").slideDown("slow").attr("style", "display: inline-block");
         $("#btnSubmit, #txtGuess, #btnNew").prop("disabled", true);
